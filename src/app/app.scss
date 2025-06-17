@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  flex: 1 1 auto;
+
+  h1 {
+    margin: 0;
+  }
+}
