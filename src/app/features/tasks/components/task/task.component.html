@@ -1,0 +1,16 @@
+<article class="task">
+  <div class="left">
+    <h3>{{ taskData.title }}</h3>
+    <p>{{ taskData.description }}</p>
+    <time>Due date: <em>{{ taskData.dueDate | toDate }}</em></time>
+  </div>
+  <div class="right">
+    <button [ngClass]="{ 'completed': taskData.completed }" class="complete-button" (click)="toggleTask(taskData)">
+      @if (taskData.completed) {
+        <mat-icon fontIcon="check_box" aria-label="Task Completed" />
+      } @else {
+        <mat-icon fontIcon="check_box_outline_blank" aria-label="Complete Task" />
+      }
+    </button>
+  </div>
+</article>

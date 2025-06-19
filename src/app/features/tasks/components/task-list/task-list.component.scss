@@ -1,0 +1,34 @@
+@use 'mixins' as m;
+
+:host, app-task-form, app-task-filter {
+  display: contents;
+}
+
+h2 {
+  @include m.sr-only;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  min-height: 0;
+
+  .task-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  ul {
+    padding: 0 1rem 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

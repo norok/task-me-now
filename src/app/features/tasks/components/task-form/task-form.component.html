@@ -1,0 +1,41 @@
+<section class="task-form">
+  @if (!open) {
+    <button
+      class="add-new-task"
+      [attr.aria-label]="addButtonText"
+      [attr.title]="addButtonText"
+      [hidden]="open"
+      (click)="onShowForm()"
+    >
+      <mat-icon fontIcon="add_circle" />
+    </button>
+  } @else {
+    <div class="form-content">
+      <div class="content">
+        <h3>Add a new task</h3>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+          <div class="field">
+            <label for="taskName">Title *:</label>
+            <input formControlName="title" id="taskName" name="taskName" type="text" required />
+          </div>
+          <div class="field">
+            <label for="taskDescription">Description:</label>
+            <textarea formControlName="description" id="taskDescription" name="taskDescription"></textarea>
+          </div>
+          <div class="field">
+            <label for="dueDate">Due Date *:</label>
+            <input formControlName="dueDate" id="dueDate" name="dueDate" type="date" />
+          </div>
+          <p class="form-notes">* required fields</p>
+          @if (taskForm.invalid && taskForm.touched) {
+            <p class="error-message">Please fill in the required fields.</p>
+          }
+          <div class="actions">
+            <button class="add" type="submit" [disabled]="!taskForm.valid">Add Task</button>
+            <button class="cancel" (click)="onHideForm()" type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</section>

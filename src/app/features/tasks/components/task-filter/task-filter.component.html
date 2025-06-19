@@ -1,0 +1,10 @@
+<div class="task-filter" role="form">
+  <label for="statusFilter">Status</label>
+  <select [(ngModel)]="selectedStatus" (change)="onStatusChange()" id="statusFilter">
+    @for (status of statuses; track status) {
+      <option [value]="status">{{ status }}</option>
+    }
+  </select>
+  <label for="searchField">Search</label>
+  <input placeholder="Search by title or description" [(ngModel)]="search" (keyup)="onSearch()" id="searchField" />
+</div>

@@ -1,1 +1,19 @@
-<p>task-list works!</p>
+<section class="task-list">
+  <div class="task-list-header">
+    <h2>Task List</h2>
+    <app-task-filter />
+    <app-task-form />
+  </div>
+  <ul>
+    @for (task of tasks | taskFilterPipe:taskFilter:taskSearchFilter | sortByDate:'asc'; track task._id) {
+      <li>
+        <app-task [taskData]="task" />
+      </li>
+    }
+    @if (tasks.length === 0) {
+      <li class="no-tasks">
+        <p>No tasks available. Please add a new task.</p>
+      </li>
+    }
+  </ul>
+</section>

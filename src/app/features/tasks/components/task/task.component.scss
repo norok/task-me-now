@@ -1,0 +1,49 @@
+@use 'mixins' as m;
+
+.task {
+  background-color: #FFF;
+  box-shadow: var(--box-shadow-default);
+  border-radius: 0.5rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  time {
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .complete-button {
+    background: none;
+    border: none;
+    color: #dcb909;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &.completed {
+      color: #0a630a;
+    }
+
+    .mat-icon {
+      @include m.size(3rem);
+      font-size: 3rem;
+    }
+  }
+}
