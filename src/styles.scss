@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --border-default-color: #EDFAE9;
+  --box-shadow-default: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  --danger-color: #ff4d4d;
+
+  background: linear-gradient(135deg,rgba(233, 240, 242, 1) 0%, rgba(235, 255, 242, 1) 50%, rgba(242, 238, 211, 1) 100%);
+  font-family: Nunito, Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
+}
+
+html {
+  height: 100%;
 }
 
 body {
@@ -19,8 +28,47 @@ body {
 }
 
 app-root {
-  width: 100%;
-  max-width: 532px;
+  border-left: 1px solid var(--border-default-color);
+  border-right: 1px solid var(--border-default-color);
+  display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
   height: 100vh;
+  max-width: 532px;
+  width: 100%;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  display: block;
+  border: none;
+  background: transparent;
+}
+
+input, textarea, select {
+  padding: 0.5rem;
+  border: 1px solid #afafaf;
+  border-radius: 0.125rem;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: var(--danger-color);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
