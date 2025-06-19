@@ -1,0 +1,28 @@
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  text-indent: -9999px;
+}
+
+@mixin size($width, $height: false) {
+  width: $width;
+
+  @if ($height) {
+    height: $height;
+  } @else {
+    height: $width;
+  }
+}
+
+@mixin mat-icon-size($size) {
+  @include size($size);
+  font-size: $size;
+  line-height: $size;
+  vertical-align: middle;
+}
